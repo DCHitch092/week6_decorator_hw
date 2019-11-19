@@ -18,10 +18,16 @@ describe('Room', function () {
   });
 
   it('should start not painted', function () {
-    const actual = room.paintedStatus
+    const actual = room.paintedStatus;
     assert.strictEqual(actual, "false")
   });
-  xit('should be able to be painted');
+
+  it('should be able to be painted', function () {
+    room.paint();
+    const actual = room.paintedStatus;
+    assert.strictEqual(actual, "true")
+  });
+
 });
 
 describe('Paint', function () {
