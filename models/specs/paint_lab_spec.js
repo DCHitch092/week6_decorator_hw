@@ -60,7 +60,9 @@ describe('Paint', function () {
 });
 
 beforeEach( function() {
-  decorator = new Decorator()
+  decorator = new Decorator();
+  red = new Paint(10, 10);
+  blue = new Paint(10, 20);
 })
 
 describe('Decorator', function() {
@@ -68,8 +70,15 @@ describe('Decorator', function() {
     const actual = decorator.paintStock;
     assert.deepStrictEqual(actual, [])
   });
-  
-  xit('be able to add a can of paint to paint stock');
+
+  it('be able to add a can of paint to paint stock', function () {
+    decorator.addPaint(red);
+    decorator.addPaint(blue);
+    const actual = decorator.paintStock;
+    assert.deepStrictEqual(actual, [red, blue]);
+
+  });
+
   xit('be able to calculate total litres paint it has in stock');
   xit('be able to calculate whether it has enough paint to paint a room');
   xit('be able to paint room if it has enough paint in stock');
