@@ -50,4 +50,15 @@ Decorator.prototype.decreasePaint = function(colour, amount){
   }
 };
 
+Decorator.prototype.testIfEmpty = function() {
+  for (var paint of this.paintStock){
+    // paint.paintCheck;
+    if(paint.currentVolume == 0){
+      let index = this.paintStock.indexOf(paint);
+      this.paintStock.splice(index, 1);
+    }
+  }
+
+};
+
 module.exports = Decorator;

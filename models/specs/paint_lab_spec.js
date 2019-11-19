@@ -64,6 +64,7 @@ beforeEach( function() {
   paint1 = new Paint("red", 10, 10);
   paint2 = new Paint("blue", 20, 10);
   paint3 = new Paint("blue", 20, 20);
+  paint4 = new Paint("green", 10, 0);
 })
 
 describe('Decorator', function() {
@@ -123,6 +124,12 @@ describe('Decorator', function() {
     assert.strictEqual(actual,5);
   });
 
-  xit('should be able to remove empty paint cans from stock');
+  it('should be able to remove empty paint cans from stock', function() {
+    decorator.addPaint(paint4);
+    decorator.addPaint(paint2);
+    decorator.testIfEmpty();
+    const actual = decorator.paintStock;
+    assert.deepEqual(actual, [ paint2 ])
+  });
 
 });
