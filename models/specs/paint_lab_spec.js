@@ -67,12 +67,12 @@ beforeEach( function() {
 })
 
 describe('Decorator', function() {
-  it('start with an empty paint stock', function () {
+  it('should start with an empty paint stock', function () {
     const actual = decorator.paintStock;
     assert.deepStrictEqual(actual, [])
   });
 
-  it('be able to add a can of paint to paint stock', function () {
+  it('should be able to add a can of paint to paint stock', function () {
     decorator.addPaint(paint1);
     decorator.addPaint(paint2);
     const actual = decorator.paintStock;
@@ -80,7 +80,7 @@ describe('Decorator', function() {
 
   });
 
-  it('be able to calculate total litres paint it has in stock', function () {
+  it('should be able to calculate total litres paint it has in stock', function () {
     decorator.addPaint(paint1);
     decorator.addPaint(paint2);
     decorator.addPaint(paint3);
@@ -91,7 +91,7 @@ describe('Decorator', function() {
 
   });
 
-  it('be able to calculate whether it has enough paint to paint a room', function () {
+  it('should be able to calculate whether it has enough paint to paint a room', function () {
     let room = new Room(25);
     decorator.addPaint(paint1);
     decorator.addPaint(paint2);
@@ -103,7 +103,7 @@ describe('Decorator', function() {
 
   });
 
-  it('be able to paint room if it has enough paint in stock', function() {
+  it('should be able to paint room if it has enough paint in stock', function() {
     decorator.addPaint(paint1);
     decorator.addPaint(paint2);
     decorator.addPaint(paint3);
@@ -112,5 +112,8 @@ describe('Decorator', function() {
     const actual = lounge.paintedStatus;
     assert.equal(actual, "true");
   });
+
+  it('should be able to decrease amount of paint in stock when painting');
+  it('should be able to remove empty paint cans from stock');
 
 });
