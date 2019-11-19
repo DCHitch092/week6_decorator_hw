@@ -5,8 +5,10 @@ const Decorator = require('../decorator.js');
 
 describe('Room', function () {
 
+  let room;
+  
   beforeEach( function() {
-    room = new Room("25", "false"); 
+    room = new Room("25", "false");
   });
 
   it('should have an area in square meters', function() {
