@@ -43,6 +43,7 @@ describe('Paint', function () {
     assert.strictEqual(actual, 10)
 
   });
+  
   xit('should be able to check if it is empty');
   xit('should be able to empty itself of paint');
 });
