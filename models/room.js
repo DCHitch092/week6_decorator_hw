@@ -3,5 +3,9 @@ const Room = function (area, paintedStatus = "false") {
   this.paintedStatus = paintedStatus;
 };
 
+Room.prototype.paint = function () {
+  this.paintedStatus = "true";
+
+};
 
 module.exports = Room;
