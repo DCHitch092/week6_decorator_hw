@@ -104,9 +104,12 @@ describe('Decorator', function() {
   });
 
   it('be able to paint room if it has enough paint in stock', function() {
-    let room = new Room(25);
-    decorator.paintRoom(room, "blue");
-    const actual = room.paintedStatus;
+    decorator.addPaint(paint1);
+    decorator.addPaint(paint2);
+    decorator.addPaint(paint3);
+    let lounge = new Room(25);
+    decorator.paintRoom(lounge, "blue");
+    const actual = lounge.paintedStatus;
     assert.equal(actual, "true");
   });
 

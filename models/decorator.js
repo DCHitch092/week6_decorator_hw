@@ -27,4 +27,9 @@ Decorator.prototype.jobMaterialsCheck = function (room, colour){
     return "false";
   }};
 
+Decorator.prototype.paintRoom = function(room, colour) {
+  let ready = this.jobMaterialsCheck(room, colour);
+  if (ready === "true") { room.paint(); };
+}
+
 module.exports = Decorator;
