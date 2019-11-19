@@ -33,7 +33,7 @@ describe('Room', function () {
 let paint;
 
 beforeEach( function() {
-  paint = new Paint(10, 10)
+  paint = new Paint("red", 10, 10)
 
 });
 
@@ -45,13 +45,13 @@ describe('Paint', function () {
   });
 
   it('should be able to check if it is empty', function () {
-    paint = new Paint(10,0);
+    paint = new Paint("red", 10,0);
     const actual = paint.paintCheck();
     assert.strictEqual(actual, "empty")
 
   });
   it('should be able to empty itself of paint', function () {
-    paint = new Paint(10,10);
+    paint = new Paint("red", 10,10);
     paint.empty();
     const actual = paint.paintCheck();
     assert.equal(actual, "empty");
@@ -61,8 +61,9 @@ describe('Paint', function () {
 
 beforeEach( function() {
   decorator = new Decorator();
-  red = new Paint(10, 10);
-  blue = new Paint(20, 10);
+  paint1 = new Paint("red", 10, 10);
+  paint2 = new Paint("blue", 20, 10);
+  paint3 = new Paint("blue", 20, 20);
 })
 
 describe('Decorator', function() {
@@ -72,21 +73,36 @@ describe('Decorator', function() {
   });
 
   it('be able to add a can of paint to paint stock', function () {
-    decorator.addPaint(red);
-    decorator.addPaint(blue);
+    decorator.addPaint(paint1);
+    decorator.addPaint(paint2);
     const actual = decorator.paintStock;
-    assert.deepStrictEqual(actual, [red, blue]);
+    assert.deepStrictEqual(actual, [paint1, paint2]);
 
   });
 
   it('be able to calculate total litres paint it has in stock', function () {
-    decorator.addPaint(red);
-    decorator.addPaint(blue);
-    const actual = decorator.totalPaint();
-    assert.strictEqual(actual, 20)
+    decorator.addPaint(paint1);
+    decorator.addPaint(paint2);
+    decorator.addPaint(paint3);
+    const actualBlue = decorator.totalPaint("blue");
+    assert.strictEqual(actualBlue, 30)
+    // const actualRed = decorator.totalPaint("red");
+    // assert.strictEqual(actualRed, 10)
+
   });
 
-  xit('be able to calculate whether it has enough paint to paint a room');
+  it('be able to calculate whether it has enough paint to paint a room', function () {
+    let room = new Room(25);
+    decorator.addPaint(paint1);
+    decorator.addPaint(paint2);
+    decorator.addPaint(paint3);
+    const actualRed = decorator.jobMaterialsCheck(room,"red");
+    assert.strictEqual(actualRed,"false");
+    const actualBlue = decorator.jobMaterialsCheck(room,"blue");
+    assert.strictEqual(actualBlue,"true");
+
+  });
+
   xit('be able to paint room if it has enough paint in stock');
 
 });

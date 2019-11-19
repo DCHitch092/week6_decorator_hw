@@ -1,4 +1,5 @@
-const Paint = function (originalVolume, currentVolume) {
+const Paint = function (colour, originalVolume, currentVolume) {
+  this.colour = colour;
   this.originalVolume = originalVolume;
   this.currentVolume = currentVolume;
 
