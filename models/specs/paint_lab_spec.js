@@ -1,7 +1,7 @@
 const assert = require('assert');
-const Room = require('../models/room.js');
-const Paint = require('../models/paint.js');
-const Decorator = require('../models/decorator.js');
+const Room = require('../room.js');
+const Paint = require('../paint.js');
+const Decorator = require('../decorator.js');
 
 describe('Room', function () {
 
@@ -22,4 +22,5 @@ describe('Decorator', function() {
   xit('be able to calculate total litres paint it has in stock');
   xit('be able to calculate whether it has enough paint to paint a room');
   xit('be able to paint room if it has enough paint in stock');
-};
+
+});
