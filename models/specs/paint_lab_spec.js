@@ -59,8 +59,16 @@ describe('Paint', function () {
 
 });
 
+beforeEach( function() {
+  decorator = new Decorator()
+})
+
 describe('Decorator', function() {
-  xit('start with an empty paint stock');
+  it('start with an empty paint stock', function () {
+    const actual = decorator.paintStock;
+    assert.deepStrictEqual(actual, [])
+  });
+  
   xit('be able to add a can of paint to paint stock');
   xit('be able to calculate total litres paint it has in stock');
   xit('be able to calculate whether it has enough paint to paint a room');
