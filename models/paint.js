@@ -1,10 +1,12 @@
-const Paint = function (volume) {
-  this.volume = volume;
-  const originalVolume = this.volume;
-  if ( this.volume !== 0) {
-    this.emptyStatus = `${ originalVolume/this.volume*100 }%`
+const Paint = function (originalVolume, currentVolume) {
+  this.originalVolume = originalVolume;
+  this.currentVolume = currentVolume;
+  if ( this.currentVolume !== 0) {
+    this.paintStatus = `${ originalVolume/this.volume*100 }%`
   } else {
-    this.emptyStatus = "empty"
+    this.paintStatus = "empty"
   };
 
 };
+
+module.exports = Paint;

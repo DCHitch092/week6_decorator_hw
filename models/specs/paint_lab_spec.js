@@ -33,17 +33,17 @@ describe('Room', function () {
 let paint;
 
 beforeEach( function() {
-  paint = new Paint(10)
+  paint = new Paint(10, 10)
 
 });
 
 describe('Paint', function () {
   it('should have a number of litres of paint', function () {
-    const actual = paint.volume;
+    const actual = paint.currentVolume;
     assert.strictEqual(actual, 10)
 
   });
-  
+
   xit('should be able to check if it is empty');
   xit('should be able to empty itself of paint');
 });
