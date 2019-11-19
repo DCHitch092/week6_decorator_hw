@@ -62,7 +62,7 @@ describe('Paint', function () {
 beforeEach( function() {
   decorator = new Decorator();
   red = new Paint(10, 10);
-  blue = new Paint(10, 20);
+  blue = new Paint(20, 10);
 })
 
 describe('Decorator', function() {
