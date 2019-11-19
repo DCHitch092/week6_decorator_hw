@@ -30,6 +30,24 @@ Decorator.prototype.jobMaterialsCheck = function (room, colour){
 Decorator.prototype.paintRoom = function(room, colour) {
   let ready = this.jobMaterialsCheck(room, colour);
   if (ready === "true") { room.paint(); };
+  this.decreasePaint(colour, room.area);
 }
+
+Decorator.prototype.decreasePaint = function(colour, amount){
+  for (var paint of this.paintStock){
+    if ( // more paint than amount
+      paint.colour == colour && paint.currentVolume > amount && amount != 0) {
+      let newVolume = paint.currentVolume - amount;
+      paint.updateCurrentVolume(newVolume);
+      amount != 0;
+    } else if ( // less paint than amount
+      paint.colour == colour && paint.currentVolume <= amount && amount > 0){
+      amount -= paint.currentVolume;
+      paint.empty();
+    } else if (amount == 0){
+      return true;
+    }
+  }
+};
 
 module.exports = Decorator;

@@ -113,7 +113,16 @@ describe('Decorator', function() {
     assert.equal(actual, "true");
   });
 
-  it('should be able to decrease amount of paint in stock when painting');
-  it('should be able to remove empty paint cans from stock');
+  it('should be able to decrease amount of paint in stock when painting', function () {
+    decorator.addPaint(paint1);
+    decorator.addPaint(paint2);
+    decorator.addPaint(paint3);
+    let lounge = new Room(25);
+    decorator.paintRoom(lounge, "blue");
+    const actual = decorator.totalPaint("blue");
+    assert.strictEqual(actual,5);
+  });
+
+  xit('should be able to remove empty paint cans from stock');
 
 });

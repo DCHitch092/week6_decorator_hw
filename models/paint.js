@@ -19,4 +19,7 @@ Paint.prototype.empty = function () {
   this.currentVolume = 0;
 };
 
+Paint.prototype.updateCurrentVolume = function (volume) {
+  this.currentVolume = volume;
+}
 module.exports = Paint;
