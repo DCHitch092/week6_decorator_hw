@@ -8,7 +8,7 @@ describe('Room', function () {
   let room;
 
   beforeEach( function() {
-    room = new Room(25, "false");
+    room = new Room(25);
   });
 
   it('should have an area in square meters', function() {
@@ -30,8 +30,19 @@ describe('Room', function () {
 
 });
 
+let paint;
+
+beforeEach( function() {
+  paint = new Paint(10)
+
+});
+
 describe('Paint', function () {
-  xit('should have a number of litres of paint');
+  it('should have a number of litres of paint', function () {
+    const actual = paint.volume;
+    assert.strictEqual(actual, 10)
+
+  });
   xit('should be able to check if it is empty');
   xit('should be able to empty itself of paint');
 });
