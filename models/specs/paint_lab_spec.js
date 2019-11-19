@@ -50,7 +50,11 @@ describe('Paint', function () {
     assert.strictEqual(actual, "empty")
 
   });
-  xit('should be able to empty itself of paint');
+  it('should be able to empty itself of paint', function () {
+    paint.empty();
+    const actual = paint.paintCheck();
+    assert.strictEqual(actual, "empty");
+  });
 });
 
 describe('Decorator', function() {
