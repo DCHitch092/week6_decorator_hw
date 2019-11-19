@@ -44,7 +44,12 @@ describe('Paint', function () {
 
   });
 
-  xit('should be able to check if it is empty');
+  it('should be able to check if it is empty', function () {
+    paint = new Paint(10,0);
+    const actual = paint.paintCheck();
+    assert.strictEqual(actual, "empty")
+
+  });
   xit('should be able to empty itself of paint');
 });
 
